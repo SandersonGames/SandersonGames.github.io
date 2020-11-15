@@ -1,44 +1,26 @@
-<section id="services">
+<section id="games">
 <!-- Page Content -->
-{% for post in site.posts reversed %}
-  {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-    {% if thecycle == 'odd' %}
-    <div class="content-section-a">
 
-        <div class="container">
+{% for game in site.games reversed %}
 
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">{{ post.title }}</h2>
-                    <div class="lead">{{ post.content }}</div>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/services/{{ post.img }}" alt="">
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
+    {% if loop.index % 2 %}
+        <div class="content-section-a">
     {% else %}
-
-    <div class="content-section-b">
+        <div class="content-section-b">
+    {% endif %}
 
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">{{ post.title }}</h2>
-                    <div class="lead">{{ post.content }}</div>
+                    <h2 class="section-heading">{{ game.title | upcase }}</h2>
+                    <div class="lead">{{ game.description }}</div>
+                    <a href={{ game.url }}>Read more</a>
+                    
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                  <img class="img-responsive" src="img/services/{{ post.img }}" alt="">
+                  <img class="img-responsive" src="img/games/{{ game.img }}" alt="">
                 </div>
             </div>
 
@@ -47,6 +29,5 @@
 
     </div>
     <!-- /.content-section-b -->
-    {% endif %}
 {% endfor %}
 </section>

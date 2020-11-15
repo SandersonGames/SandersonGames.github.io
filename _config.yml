@@ -11,6 +11,22 @@ description: > # "Write an awesome description for your new site here.
 copyright: 'Copyright &copy; 2020 Luke Sanderson. All Rights Reserved.'
 credits: 'Credits: Landing Page is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com/">Start Bootstrap</a>.'
 
+collections:
+  games:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "games"
+    values:
+      layout: "game"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
